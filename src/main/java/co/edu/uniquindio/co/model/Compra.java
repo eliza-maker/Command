@@ -16,7 +16,7 @@ public class Compra {
     public void agregarItem(Producto item) {
         items.add(item);
         total += item.getPrecio();
-        System.out.println("Item reincorporado: " + item.getNombre());
+        System.out.println("Se agregó: " + item.getNombre());
     }
 
     public List<Producto> getItems() {
@@ -25,5 +25,13 @@ public class Compra {
 
     public double getTotal() {
         return total;
+    }
+
+    @Override
+    public String toString() {
+        return "Compra{" +
+                "items=" + items +
+                ", total=" + total +
+                '}';
     }
 }

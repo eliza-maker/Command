@@ -4,7 +4,7 @@ public class AddProductCommand implements ICommand{
     private Compra compra;
     private Producto itemAAgregar;
 
-    public void AddProductCommand(Compra compra, Producto item) {
+    public  AddProductCommand(Compra compra, Producto item) {
         this.compra = compra;
         this.itemAAgregar = item;
     }
@@ -16,6 +16,7 @@ public class AddProductCommand implements ICommand{
 
     @Override
     public void deshacer() {
+
         compra.eliminarItem(itemAAgregar);
     }
 

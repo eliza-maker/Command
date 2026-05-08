@@ -10,10 +10,9 @@ public class RemoveProductCommand implements ICommand{
         this.itemAEliminar = item;
     }
 
-
-
     @Override
     public void ejecutar() {
+
         compra.eliminarItem(itemAEliminar);
     }
 

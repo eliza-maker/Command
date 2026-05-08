@@ -3,20 +3,25 @@ package co.edu.uniquindio.co.model;
 import java.util.Stack;
 
 public class InvocadorCarrito {
-    private Compra compraActual = new Compra();
-    private Stack<ICommand> historialEliminaciones = new Stack<>();
+    private Stack<ICommand> historial = new Stack<>();
 
-
-    public void accionEliminar(Producto item) {
-        ICommand comando = new RemoveProductCommand(compraActual, item);
+    public void ejecutarComando(ICommand comando) {
         comando.ejecutar();
-        historialEliminaciones.push(comando);
+        historial.push(comando);
     }
 
-    public void accionDeshacerEliminacion() {
-        if (!historialEliminaciones.isEmpty()) {
-            ICommand ultimo = historialEliminaciones.pop();
-            ultimo.deshacer();
+    public void deshacerUltimaAccion() {
+        if (!historial.isEmpty()) {
+            historial.pop().deshacer();
+        } else {
+            System.out.println("Nada para deshacer");
         }
+    }
+
+    @Override
+    public String toString() {
+        return "InvocadorCarrito{" +
+                "historial=" + historial +
+                '}';
     }
 }

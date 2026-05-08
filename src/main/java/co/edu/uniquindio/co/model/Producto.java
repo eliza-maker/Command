@@ -9,6 +9,18 @@ public class Producto {
         this.precio = precio;
     }
 
-    public String getNombre() { return nombre; }
-    public double getPrecio() { return precio; }
+    public String getNombre() {
+        return nombre; }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    @Override
+    public String toString() {
+        return "Producto{" +
+                "nombre='" + nombre + '\'' +
+                ", precio=" + precio +
+                '}';
+    }
 }
